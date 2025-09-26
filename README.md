@@ -10,8 +10,6 @@ State Space Models (SSMs) have emerged as efficient alternatives to Vision Trans
   <img src="plot/images/main.PNG" alt="architecture" width="80%">
 </p>
 
-## Requirements
-
 ## Requirements 
 - [Python 3.8](https://www.python.org/)
 - [CUDA 12.1](https://developer.nvidia.com/cuda-zone)
