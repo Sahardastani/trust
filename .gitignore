@@ -1,0 +1,6 @@
+__pycache__
+utils/ckpts
+utils/data
+utils/results
+backbones/Vim
+traverse_ckpts
