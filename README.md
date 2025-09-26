@@ -1,4 +1,4 @@
-# TRUST: Test-Time Refinement using Uncertainty-Guided SSM Traverses
+# [NeurIPS 2025 🎉] TRUST: Test-Time Refinement using Uncertainty-Guided SSM Traverses
 
 This repository is the official implementation of TRUST. 
 
