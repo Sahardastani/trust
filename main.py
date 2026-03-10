@@ -19,7 +19,6 @@ import trust
 import baselines.eata
 import baselines.sar
 import utils.utils.my_datasets as my_datasets
-from utils.utils.sam import SAM
 
 def import_abspy(name="models", path="classification/"):
     """Dynamically imports a module from a given path."""
@@ -335,20 +334,6 @@ def main():
     optimizer = optim.Adam(params, lr=args.lr)
     trust_model = trust.TRUST(args, model, optimizer)
 
-    ## ETA
-    # model = eata.configure_model(model)
-    # params, _ = eata.collect_params(model)
-    # optimizer = torch.optim.Adam(params, args.lr)
-    # trust_model = eata.EATA(model, optimizer, e_margin=args.e_margin, d_margin=args.d_margin)
-    
-    ## SAR
-    # model = sar.configure_model(model)
-    # params, _ = sar.collect_params(model)
-    # base_optimizer = torch.optim.Adam
-    # optimizer = SAM(params, base_optimizer, lr=args.lr)
-    # # optimizer = torch.optim.Adam(params, args.lr)
-    # trust_model = sar.SAR(model, optimizer, margin_e0=args.sar_margin_e0)
-    
     if args.dataset in {'imagenetc', 'cifar10c', 'cifar100c'}:
         for corr_idx, corruption in enumerate(args.corruptions_list):
             test_loader, _ = my_datasets.prepare_test_data(args, corruption)
