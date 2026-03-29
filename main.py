@@ -109,13 +109,13 @@ def load_model(args, home_directory):
         model = vmamba.vmamba_tiny_s1l8(experiment_name=args.experiment_name, dataset=args.dataset).cuda()
         
         if args.dataset in {'imagenetc', 'imagenetsketch', 'imagenetv2', 'imagenetr'}:
-            model.load_state_dict(torch.load(open(os.path.join(home_directory, "utils/ckpts/imagenet/ckpt_epoch_299_old.pth"), "rb"), map_location="cuda")['model'], strict=False)
+            model.load_state_dict(torch.load(open(os.path.join(home_directory, "utils/ckpts/imagenet/ckpt_imagenet.pth"), "rb"), map_location="cuda")['model'], strict=False)
         elif args.dataset == 'cifar10c':
-            model.load_state_dict(torch.load(open(os.path.join(home_directory, "utils/ckpts/cifar10/ckpt_epoch_299_old.pth"), "rb"), map_location="cuda")['model'], strict=True)
+            model.load_state_dict(torch.load(open(os.path.join(home_directory, "utils/ckpts/cifar10/ckpt_cifar10.pth"), "rb"), map_location="cuda")['model'], strict=True)
         elif args.dataset == 'cifar100c':
-            model.load_state_dict(torch.load(open(os.path.join(home_directory, "utils/ckpts/cifar100/ckpt_epoch_299_old.pth"), "rb"), map_location="cuda")['model'], strict=True)
+            model.load_state_dict(torch.load(open(os.path.join(home_directory, "utils/ckpts/cifar100/ckpt_cifar100.pth"), "rb"), map_location="cuda")['model'], strict=True)
         elif args.dataset == 'pacs':
-            model.load_state_dict(torch.load(open(os.path.join(home_directory, "utils/ckpts/pacs/ckpt_epoch_299_old.pth"), "rb"), map_location="cuda")['model'], strict=True)
+            model.load_state_dict(torch.load(open(os.path.join(home_directory, "utils/ckpts/pacs/ckpt_pacs.pth"), "rb"), map_location="cuda")['model'], strict=True)
 
     else:
         raise ValueError(f"Invalid backbone: {args.backbone}")

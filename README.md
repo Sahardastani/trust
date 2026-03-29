@@ -36,7 +36,15 @@ pip install -r requirements.txt
 cd backbones/VMamba/kernels/selective_scan && pip install .
 ```
 
-### Step 3: Prepare Datasets
+### Step 3: Build Directories
+
+To set up the dataset, download them and modify their paths in [preliminaries](preliminaries.sh), then run the script:
+
+```
+bash preliminaries.sh
+```
+
+### Step 4: Prepare Datasets
 
 Supported datasets:
 
@@ -48,17 +56,29 @@ Supported datasets:
 - [ImagNet-R](https://people.eecs.berkeley.edu/~hendrycks/imagenet-r.tar)
 - [PACS](http://www.eecs.qmul.ac.uk/~dl307/project_iccv2017)
 
-### Step 4: Build Directories
-
-To set up the dataset, download them and modify their paths in [preliminaries](preliminaries.sh), then run the script:
-
-```
-bash preliminaries.sh
-```
-
 ## Adaptation
 
-There are different bash files in [bash](utils/bash) directory which are prepared to reproduce the results of the paper for different datasets and domains. As an example, here is how to run TRUST method for different datasets:
+There are different bash files in [bash](utils/bash) directory which are prepared to reproduce the results of the paper for different datasets and domains. 
+
+To run source only method for different datasets:
+
+```eval
+bash utils/bash/source.sh
+```
+
+To run TENT method for different datasets:
+
+```eval
+bash utils/bash/tent.sh
+```
+
+To run TRUST naive method for different datasets:
+
+```eval
+bash utils/bash/trust_naive.sh
+```
+
+To run TRUST method for different datasets:
 
 ```eval
 bash utils/bash/trust.sh
@@ -71,6 +91,7 @@ Here are the results of our prposed `TRUST` method on different datasets:
 
 | **Method**       | **CIFAR10-C** | **CIFAR100-C** | **ImageNet-C** | **ImageNet-S** | **ImageNet-V2** | **ImageNet-R** | **PACS** |
 |------------------|---------------|----------------|----------------|----------------|------------------|----------------|----------|
+| ckpt             | [link](https://drive.google.com/file/d/1A20NySvXQb28ZbWKmbfY2YlaqkNWiYSp/view?usp=sharing) | [link](https://drive.google.com/file/d/1zRAi000yilP9o9sx_vHKrD47kHynlj7E/view?usp=sharing) | [link](https://drive.google.com/file/d/1Jo7V0jXJEX96diQ62n5iGZyhXulbvDJ2/view?usp=sharing) | - | - | - | [link](https://drive.google.com/file/d/1A1XKy3OuUO9QSV8xFNcEpJs4fzFhqIiF/view?usp=sharing) |
 | Source only      | 65.9          | 41.2           | 38.7           | 31.4           | 62.2             | 31.3           | 66.7     |
 | ETA              | 65.8          | 41.4           | 40.8           | 31.4           | 62.2             | 31.3           | 66.7     |
 | LAME             | 65.9          | 41.2           | 38.8           | 31.4           | 62.2             | 31.3           | 66.7     |
@@ -79,7 +100,6 @@ Here are the results of our prposed `TRUST` method on different datasets:
 | TENT             | 66.5          | 41.8           | 41.6           | 32.5           | 62.3             | 31.9           | 67.4     |
 | TRUST naive      | 74.2          | 49.8           | 53.4           | 41.1           | 63.4             | 39.7           | 67.1     |
 | **TRUST**        | **77.5**      | **54.3**       | **56.1**       | **41.5**       | **64.0**         | **44.3**       | **69.9** |
-
 
 ## Acknowledgment
 

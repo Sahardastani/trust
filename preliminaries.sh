@@ -4,40 +4,32 @@
 cd utils
 mkdir ckpts
 
+# Create subfolders for each checkpoint file 
+# (download the checkpoint files from result table and place them in the corresponding folders)
 cd ckpts
-mkdir imagenet
 mkdir cifar10
 mkdir cifar100
-mkdir visdac
+mkdir imagenet
 mkdir pacs
 
-cd imagenet
-cp -r /data/shared/vmamba_ckpts/* ./
-
-cd ../cifar10
-cp -r /data/shared/vmamba_ckpts/cifar10/* ./
-
-cd ../cifar100
-cp -r /data/shared/vmamba_ckpts/cifar100/* ./
-
-cd ../pacs
-cp -r /data/shared/vmamba_ckpts/pacs/* ./
-
-cd ../..
+cd ..
 
 # Create the results folder
 mkdir results
 
-# Create the data folder and create a symbolic link to Imagenet-C
+# Create subfolders for each dataset
+# (download the datasets from the official sources (step 4) and place them in the corresponding folders)
 mkdir data
+
 cd data
-ln -s /data/shared/Imagenet-C/
-ln -s /data/shared/Imagenet-S/
-ln -s /data/shared/Imagenet-R/
-ln -s /data/shared/Imagenet-V2/
-ln -s /data/shared/CIFAR-10-C/
-ln -s /data/shared/CIFAR-100-C/
-ln -s /data/shared/PACS/
+mkdir CIFAR-10-C
+mkdir CIFAR-100-C
+mkdir Imagenet-C
+mkdir Imagenet-S
+mkdir Imagenet-R
+mkdir Imagenet-V2
+mkdir PACS
+
 cd ../..
 
 echo "Setup complete."
